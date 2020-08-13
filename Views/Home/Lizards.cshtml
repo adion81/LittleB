@@ -1,0 +1,30 @@
+@model List<Lizard>
+
+<h1>Here is our crew:</h1>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Lizard Type</th>
+            <th>Pirate Role</th>
+            <th># of Treasures</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(Lizard l in Model)
+        {
+            <tr>
+                <td>@l.Name</td>
+                <td>@l.LizardType</td>
+                <td>@l.PirateRole</td>
+                <td>@l.TreasureChests</td>
+                <td>
+                    <a href="/edit/@l.LizardId" class="btn btn-warning">Edit</a>
+                    <a asp-action="Destroy" asp-controller="Home" asp-route-lizardId="@l.LizardId" class="btn btn-danger">Walk The Plank!!!</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/" class="btn btn-success">Home</a>
